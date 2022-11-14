@@ -7,12 +7,8 @@
 # @lc code=start
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        if len(s) != len(t):
-            return False
-
-        for letter in s:
-            t = t.replace(letter, '', 1)
-
-        return len(t) == 0
+        s_dict = {char: s.count(char) for char in set(s)}
+        t_dict = {char: t.count(char) for char in set(t)}
+        return s_dict == t_dict
 # @lc code=end
 
